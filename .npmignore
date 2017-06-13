@@ -1,0 +1,7 @@
+src
+test
+Makefile
+contributing.md
+.editorconfig
+.babelrc
+.travis.yml
