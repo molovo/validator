@@ -1,5 +1,5 @@
 import test from 'ava'
-import Validator from '../../lib'
+import Validator from '../../lib/validator'
 import Regex from '../../lib/rules/regex'
 
 test('passes value with letters only', t => {

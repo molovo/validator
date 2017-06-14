@@ -1,19 +1,19 @@
 import test from 'ava'
 import Rule from '../lib/rule'
-import Validator from '../lib'
+import Validator from '../lib/validator'
 import InvalidRuleError from '../lib/errors/invalid-rule-error'
+
+test('Rule class must be provided Validator instance', t => {
+  const error = t.throws(() => new Rule())
+  t.is(error.name, 'MissingValidatorError')
+  t.is(error.message, 'You must provide a Validator instance')
+})
 
 test('Rule class must define name', t => {
   const rule = new Rule(new Validator())
   const error = t.throws(() => rule.name)
   t.is(error.name, 'InvalidRuleError')
   t.is(error.message, 'Rule must have a name')
-})
-
-test('Rule class must be provided Validator instance', t => {
-  const error = t.throws(() => new Rule())
-  t.is(error.name, 'MissingValidatorError')
-  t.is(error.message, 'You must provide a Validator instance')
 })
 
 test('Rule class must define validate method', t => {

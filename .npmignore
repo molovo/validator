@@ -5,3 +5,5 @@ contributing.md
 .editorconfig
 .babelrc
 .travis.yml
+.nyc_output
+coverage
