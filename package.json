@@ -5,17 +5,20 @@
   "main": "lib",
   "scripts": {
     "lint": "eslint lib test",
-    "test": "nyc ava"
+    "test": "cross-env NODE_ENV=test nyc ava",
+    "dev": "onchange '{lib,test}/**/*.js' -- npm test"
   },
   "author": "molovo",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-core": "6.x",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "6.x",
     "babel-preset-stage-2": "6.x",
     "codeclimate-test-reporter": "^0.4.1",
+    "cross-env": "^5.0.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.2.0",
@@ -24,13 +27,31 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-unicorn": "^2.1.1",
     "eslint-plugin-xo": "^1.0.0",
-    "nyc": "^10.3.2"
+    "nyc": "^10.3.2",
+    "onchange": "^3.2.1"
   },
   "ava": {
     "require": [
       "babel-core/register"
     ],
     "verbose": "true"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "reporter": [
+      "lcov"
+    ],
+    "cache": true,
+    "all": true
   },
   "dependencies": {
     "lodash": "^4.17.4"
