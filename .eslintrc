@@ -6,11 +6,9 @@
   },
   "plugins": [
     "standard",
-    "unicorn",
-    "xo"
+    "unicorn"
   ],
   "extends": [
-    "plugin:xo/recommended",
     "plugin:unicorn/recommended",
     "standard"
   ],
