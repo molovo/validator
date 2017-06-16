@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint lib test",
     "test": "cross-env NODE_ENV=test nyc ava",
-    "dev": "onchange '{lib,test}/**/*.js' -- npm test"
+    "dev": "onchange '{lib,test}/**/*.js' -- npm test",
+    "coverage": "nyc report --reporter=lcov && codeclimate-test-reporter < coverage/lcov.info"
   },
   "author": "molovo",
   "license": "MIT",

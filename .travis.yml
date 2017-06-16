@@ -1,9 +1,20 @@
 language: node_js
 sudo: false
-node_js:
-  - 6
-  - 7
-  - 8
+node_js: 8
+jobs:
+  include:
+  - stage: lint
+    script: npm run lint
+  - stage: test
+    node_js:
+    - 6
+    - 7
+    - 8
+    script: npm test
+  - stage: coverage
+    script: npm run coverage
 notifications:
-  email:
-    false
+  email: false
+env:
+  global:
+    secure: VDabeoMuc9iYuAsJjnssQy6n4DFS6eD2etJJs1rlpi2Y/wZPo5JUOGZkru3ipEyEugKDMf2fq6vQG2q8YqthzHbpDAaivpNijPhHJhFgoqUXrXJf8CtmZHke75+FOny5m+QiSnq3V/TJ6lTNWsdLUIwHOqDEuW6RcskI65xVynVP5Drmp5+943wfGZCh/57Vm7GzqnPPz2/V0YNFEUmg/J5fpZsMa+fcvcvhT/NdCw7AsMdtNqD+IXYS96gRALj0RWP1DFzdVINOYX5y8PK+SXTXGpCKgpHQMb56Q1uKoH2fTpkY+UfsRm84kVkq34TEIM8YNprjTDF2bLaJhuzj08/vcm+HiOv2eWMMD+zXw85N80SYKVQ95/X14J8vzjL2E65ObNwrorkR7CPHSrtN3qDvnbjk4PnJtsqRpBjr0Lko1XQbMXjW+1JkmmpEuE7dwoWKiDdFjSVocO0XVzsDwv5ccfeZ7o/7gDup2sKF/u70D4Nm1oc8SpqRI8JfmbRjEozZZGwLnsLOlU2ou5SMB+Ow89TuTJJ0b53mCSFttrHZjOfgWQAJv348f+1IMAjZxGwZWgME0VEdq6m1m+1a3NqG7pQgl4uIrRCOfkWDB+VKIO7WDQwNRPQi9iEdGRAngX0PaTwfgFjdNftgTWt2WefvfIwpKSXPiuaozlDRgp0=
