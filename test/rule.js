@@ -1,7 +1,6 @@
 import test from 'ava'
 import Rule from '../lib/rule'
 import Validator from '../lib/validator'
-import InvalidRuleError from '../lib/errors/invalid-rule-error'
 
 test('Rule class must be provided Validator instance', t => {
   const error = t.throws(() => new Rule())

@@ -13,5 +13,8 @@
     "plugin:xo/recommended",
     "plugin:unicorn/recommended",
     "standard"
-  ]
+  ],
+  "rules": {
+    "no-template-curly-in-string": "off"
+  }
 }
